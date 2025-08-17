@@ -2,6 +2,13 @@
 [![<iMerica>](https://github.com/iMerica/dj-rest-auth/actions/workflows/main.yml/badge.svg)](https://github.com/iMerica/dj-rest-auth/actions/workflows/main.yml/)
 
 
+
+> [!NOTE]
+> #### `Main Focus`
+> - To update this package according to changes on `django-allauth`.
+> - To solve the issue raised on main package.
+
+
 Drop-in API endpoints for handling authentication securely in Django Rest Framework. Works especially well 
 with SPAs (e.g., React, Vue, Angular), and Mobile applications. 
 
