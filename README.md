@@ -1,12 +1,12 @@
-# Dj-Rest-Auth
+# Dj-Rest-Auth-Two
 [![<iMerica>](https://github.com/iMerica/dj-rest-auth/actions/workflows/main.yml/badge.svg)](https://github.com/iMerica/dj-rest-auth/actions/workflows/main.yml/)
 
 
 
 > [!NOTE]
-> #### `Main Focus`
-> - To update this package according to changes on `django-allauth`.
-> - To solve the issue raised on main package.
+> #### `Main Target`
+> - To upgrade `dj_rest_auth` according to changes on `django-allauth`.
+> - To solve the issue raised on `dj_rest_auth`.
 
 
 Drop-in API endpoints for handling authentication securely in Django Rest Framework. Works especially well 
@@ -14,15 +14,15 @@ with SPAs (e.g., React, Vue, Angular), and Mobile applications.
 
 ## Requirements
 - Django >= 4.2 (See Unit Test Coverage in CI)
-- Python >= 3.8
+- Python >= 3.9
 
 ## Quick Setup
 
 Install package
 
-    pip install dj-rest-auth
+    pip install dj-rest-auth-two
     
-Add `dj_rest_auth` app to INSTALLED_APPS in your django settings.py:
+Add `dj_rest_auth_two` app to INSTALLED_APPS in your django settings.py:
 
 ```python
 INSTALLED_APPS = (
