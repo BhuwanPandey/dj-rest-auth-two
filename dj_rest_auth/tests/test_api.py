@@ -35,7 +35,7 @@ class TESTTokenObtainPairSerializer(TokenObtainPairSerializer):
         return token
 
 
-@override_settings(ROOT_URLCONF='tests.urls')
+@override_settings(ROOT_URLCONF='dj_rest_auth.tests.urls')
 class APIBasicTests(TestsMixin, TestCase):
     """
     Case #1:
@@ -469,7 +469,7 @@ class APIBasicTests(TestsMixin, TestCase):
     def test_registration_honors_password_validators(self):
         self.post(self.register_url, data=self.REGISTRATION_DATA, status_code=400)
 
-    @override_api_settings(REGISTER_PERMISSION_CLASSES=('tests.mixins.CustomPermissionClass',))
+    @override_api_settings(REGISTER_PERMISSION_CLASSES=('dj_rest_auth.tests.mixins.CustomPermissionClass',))
     def test_registration_with_custom_permission_class(self):
         class CustomRegisterView(RegisterView):
             permission_classes = api_settings.REGISTER_PERMISSION_CLASSES
@@ -752,7 +752,7 @@ class APIBasicTests(TestsMixin, TestCase):
         ),
     )
     @override_api_settings(SESSION_LOGIN=False)
-    @override_api_settings(JWT_TOKEN_CLAIMS_SERIALIZER='tests.test_api.TESTTokenObtainPairSerializer')
+    @override_api_settings(JWT_TOKEN_CLAIMS_SERIALIZER='dj_rest_auth.tests.test_api.TESTTokenObtainPairSerializer')
     def test_custom_jwt_claims(self):
         payload = {
             'username': self.USERNAME,
@@ -778,7 +778,7 @@ class APIBasicTests(TestsMixin, TestCase):
         ),
     )
     @override_api_settings(SESSION_LOGIN=False)
-    @override_api_settings(JWT_TOKEN_CLAIMS_SERIALIZER='tests.test_api.TESTTokenObtainPairSerializer')
+    @override_api_settings(JWT_TOKEN_CLAIMS_SERIALIZER='dj_rest_auth.tests.test_api.TESTTokenObtainPairSerializer')
     def test_custom_jwt_claims_cookie_w_authentication(self):
         payload = {
             'username': self.USERNAME,
