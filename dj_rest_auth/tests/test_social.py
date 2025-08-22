@@ -2,7 +2,6 @@ import json
 
 import responses
 from allauth.socialaccount.models import SocialApp
-from allauth.socialaccount.providers.facebook.provider import GRAPH_API_URL
 from django.contrib.auth import get_user_model
 from django.contrib.sites.models import Site
 from django.test import TestCase
@@ -11,6 +10,13 @@ from rest_framework import status
 
 from .mixins import TestsMixin
 from .utils import override_api_settings
+from allauth.socialaccount.providers.facebook.constants import GRAPH_API_URL
+
+
+# try:
+#     from allauth.socialaccount.providers.facebook.provider import GRAPH_API_URL
+# except ImportError:
+#     from allauth.socialaccount.providers.facebook.constants import GRAPH_API_URL
 
 
 try:
@@ -19,7 +25,7 @@ except ImportError:
     from django.core.urlresolvers import reverse  # noqa
 
 
-@override_settings(ROOT_URLCONF='tests.urls')
+@override_settings(ROOT_URLCONF='dj_rest_auth.tests.urls')
 class TestSocialAuth(TestsMixin, TestCase):
 
     USERNAME = 'person'
@@ -308,7 +314,7 @@ class TestSocialAuth(TestsMixin, TestCase):
         self.assertEqual(get_user_model().objects.all().count(), users_count + 1)
 
 
-@override_settings(ROOT_URLCONF='tests.urls')
+@override_settings(ROOT_URLCONF='dj_rest_auth.tests.urls')
 class TestSocialConnectAuth(TestsMixin, TestCase):
 
     USERNAME = 'person'

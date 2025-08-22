@@ -1,0 +1,73 @@
+[project]
+name = "dj-rest-auth-two"
+description = "Authentication and Registration in Django Rest Framework"
+readme = "README.md"
+license = { file = "LICENSE" }
+dynamic = ["version"]
+maintainers = [
+    { name = "bhuwanpandey", email = "bhuwan.pandey9867@gmail.com" }
+]
+authors = [
+    { name = "iMerica", email = "imichael@pm.me" },
+    { name = "bhuwanpandey", email = "bhuwan.pandey9867@gmail.com" }
+]
+keywords = [
+    "django", "rest", "auth", "registration", "rest-framework",
+    "django-registration", "api"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Django",
+    "Programming Language :: Python :: 3 :: Only",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development"
+]
+requires-python = ">=3.9"
+dependencies = [
+    "Django>=4.2,<6.0",
+    "djangorestframework>=3.13.0",
+]
+
+[project.optional-dependencies]
+with-social = ["django-allauth[socialaccount]>=64.0.0"]
+
+[project.urls]
+Homepage = "https://dj-rest-auth.readthedocs.io/en/latest/"
+Documentation = "https://dj-rest-auth.readthedocs.io/en/latest/"
+Repository = "https://github.com/BhuwanPandey/dj-rest-auth-two"
+Issues = "https://github.com/iMerica/dj-rest-auth/issues"
+
+[dependency-groups]
+dev = [
+    'coveralls>=1.11.1',
+    'django-allauth>=64.0.0',
+    'djangorestframework-simplejwt==5.3.1',
+    'responses==0.12.1',
+    'unittest-xml-reporting==3.2.0',
+    'flake8==7.1.1',
+    'pytest',
+    'pytest-django'
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.hatch.version]
+path = "dj_rest_auth/__init__.py"
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["dj_rest_auth"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/README.md"]
+
+[tool.hatch.envs.test.scripts]
+test = "pytest -x"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+

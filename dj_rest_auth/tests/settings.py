@@ -7,7 +7,7 @@ PROJECT_ROOT = os.path.abspath(os.path.split(os.path.split(__file__)[0])[0])
 
 
 logging.disable(logging.CRITICAL)
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'dj_rest_auth.tests.urls'
 STATIC_URL = '/static/'
 STATIC_ROOT = f'{PROJECT_ROOT}/staticserve'
 STATICFILES_DIRS = (
